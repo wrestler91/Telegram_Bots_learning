@@ -6,11 +6,12 @@ from configs.config import Configs, load_configs
 from handlers import other_handlers, user_handlers
 from keyboard.main_menu import set_main_menu
 from services.handling import prepare_book
+from configs.config import BOOK_NAME
+import os
+
 
 # Инициализируем логгер
 logger = logging.getLogger(__name__)
-BOOK_PATH = 'C:/Users/Арутюн/Desktop/python/проекты/телеграм-бот/бот_из_курса/bot/book_bot/book/book.txt'
-# BOOK_PATH ='bot/book_bot/book/book.txt'
 
 # Функция конфигурирования и запуска бота
 async def main():
@@ -26,8 +27,16 @@ async def main():
     # Загружаем конфиг в переменную config
     config: Configs = load_configs()
 
+    # определяем путь к файлу:
+    # Определение базового пути к модулю main.py
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Соединение базового пути и переменной пути BOOK_PATH
+    file_path = os.path.join(base_path, BOOK_NAME)
+    file_path = base_path+BOOK_NAME
+
     # готовим книгу для тг бота при помощ инашей функции
-    prepare_book(path=BOOK_PATH)
+    prepare_book(path=file_path)
     
 
     # Инициализируем бот и диспетчер
@@ -51,4 +60,3 @@ if __name__ == '__main__':
     asyncio.run(main())
 
 
-    

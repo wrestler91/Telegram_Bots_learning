@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from environs import Env
 
+BOOK_NAME ='\\book\\book.txt'
+
 @dataclass
 class TgBot:
     token: str

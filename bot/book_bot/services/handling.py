@@ -4,10 +4,7 @@
 """
 import os
 
-# BOOK_PATH = 'book/book.txt'
-# BOOK_PATH = 'C:/Users/Арутюн/Desktop/python/проекты/телеграм-бот/бот_из_курса/bot/book_bot/book/book.txt'
-# path = os.path.join(os.getcwd(), BOOK_PATH).replace('\\','/')
-# print(path)
+
 PAGE_SIZE = 1050
 book: dict[int, str] = {}
 
@@ -56,16 +53,3 @@ def prepare_book(path: str) -> None:
         page, length = _get_part_text(text, start, PAGE_SIZE)
         book[page_num] = page.lstrip()
     
-
-    # if start < len(text):
-    #     page_num += 1
-    #     book[page_num] = text[start:]
-
-# prepare_book(path=path)
-
-'''
-'Да? Вы точно уверены? Может быть,
-33
-'''
-# Вызов функции prepare_book для подготовки книги из текстового файла
-# prepare_book(os.path.join(os.getcwd(), BOOK_PATH))
